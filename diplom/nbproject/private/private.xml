@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/var/www/html/diplom/routes/web.php</file>
+            <file>file:/var/www/html/diplom/app/Mail/MailClass.php</file>
+            <file>file:/var/www/html/diplom/app/Http/Controllers/VerifyEmailController.php</file>
+            <file>file:/var/www/html/diplom/app/Http/Controllers/Auth/RegisterController.php</file>
+            <file>file:/var/www/html/diplom/app/User.php</file>
+            <file>file:/var/www/html/diplom/database/migrations/2014_10_12_000000_create_users_table.php</file>
+            <file>file:/var/www/html/diplom/resources/views/mail/contact-mail.blade.php</file>
+        </group>
     </open-files>
 </project-private>

@@ -7,15 +7,15 @@ use Auth;
 
 class RegisterChange extends Controller {
 
-    public function showRegistrationForm() {
-
-        $rights = Auth::user()->rights;
-        
-        if ($rights != 1 ) {
-            return redirect('/');
-        } else {
-            return view('auth.register');
-        }
-    }
+//    public function showRegistrationForm() {
+//
+//        $rights = Auth::user()->rights;
+//        
+//        if ($rights != 1 ) {
+//            return redirect('/');
+//        } else {
+//            return view('auth.register');
+//        }
+//    }
 
 }

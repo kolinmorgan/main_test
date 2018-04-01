@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Mail;
+//use App\Mail\MeilClass;
 
 class RegisterController extends Controller {
     /*
@@ -35,7 +37,7 @@ use RegistersUsers;
      * @return void
      */
     public function __construct() {
-       
+
         $this->middleware('guest');
     }
 
@@ -46,8 +48,8 @@ use RegistersUsers;
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data) {
-        
-        
+
+
         return Validator::make($data, [
                     'name' => 'required|string|max:255',
                     'login' => 'required|string|max:255|unique:users,login',
@@ -63,13 +65,17 @@ use RegistersUsers;
      * @return \App\User
      */
     protected function create(array $data) {
-        
-        return User::create([
-                    'name' => $data['name'],
-                    'login' => $data['login'],
-                    'email' => $data['email'],
-                    'password' => Hash::make($data['password']),
-        ]);
+
+//        return User::create([
+//                    'name' => $data['name'],
+//                    'login' => $data['login'],
+//                    'email' => $data['email'],
+//                    'password' => Hash::make($data['password']),
+//        ]);
+        $user = User::registerAndLogin(array_except($data, ['token']));
+        Mail::to($user)->send(new \App\Mail\MailClass($user));
+
+        return $user;
     }
 
 }
