@@ -17,22 +17,22 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-//Route::post('register', 'Auth\RegisterController@register');
+
+
 //заблокирует регистрацию
 //Route::get('register', function() {
 //
 //    if (!Auth::check()) {
 //        return redirect('/');
 //    } else {
-//       return view('register');
+//        return view('auth.register');
 //    }
 //
-//    return redirect('register');
+////    return redirect('register');
 //});
-//Route::get('register', 'RegisterChange@showRegistrationForm')->name('register');
-//Route::post('register', 'RegisterChange@register');
 
+//Route::get('register', 'RegisterChange@showRegistrationForm')->name('register');
+//Route::post('register', 'Auth\RegisterController@register');
 
 
 Route::group(['prefix' => 'user', 'middleware' => ['web', 'auth']], function() {
@@ -45,4 +45,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('verify', function () {
     echo 'Подтвердите email на почте';
 })->name('verify');
+
 Route::get('/email/confirmation/{token}', 'VerifyEmailController@confirm')->name('email.confirmation');

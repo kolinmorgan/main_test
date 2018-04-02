@@ -41,4 +41,13 @@ use AuthenticatesUsers;
         $this->middleware('guest')->except('logout');
     }
 
+    public function sendLoginResponse() {
+        if (auth()->user()->status == 0) {
+            auth()->logout();
+            return redirect('/');
+        } else {
+            return view('home');
+        }
+    }
+
 }
